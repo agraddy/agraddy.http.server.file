@@ -1,0 +1,22 @@
+{
+  "name": "agraddy.http.server.file",
+  "version": "1.0.0",
+  "description": "A very simple file server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agraddy/agraddy.http.server.file.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agraddy/agraddy.http.server.file/issues"
+  },
+  "homepage": "https://github.com/agraddy/agraddy.http.server.file#readme",
+  "devDependencies": {
+    "tape": "^4.4.0"
+  }
+}
