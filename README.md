@@ -8,14 +8,19 @@ MIT License
 
 ```npm install agraddy.http.server.file```
 
+Or the shortcut version:
+
+```npm install ag-file-server```
+
 ## Use
 
 ```
 var file = require('agraddy.http.server.file');
-var http = require('http');
+// Or the shortcut version
+//var file = require('ag-file-server');
 var server;
 
-server = http.createServer(file('location_of_file/example.htm'));
+server = file('location_of_file/example.htm');
 
 server.listen(8080);
 ```
@@ -25,13 +30,8 @@ server.listen(8080);
 * Create an example directory with the above example (include step-by-step instructions from scratch and include assumptions).
 * Explain how the test is setup
 
-## Future Ideas (not implemented)
-```
-var file = require('agraddy.http.server.file');
-var server;
+## FAQ
 
-server = file('location_of_file/example.htm');
+Why dot notation instead of using scope or dashes?
 
-server.listen(8080);
-```
-
+It is just a personal preference. In my opinion, dots look clean and simple.

@@ -1,14 +1,7 @@
+var handler = require('agraddy.http.server.file.handler');
 var fs = require('fs');
+var http = require('http');
 
-module.exports = function(path_to_file, type) {
-	return function(req, res) {
-		var file = fs.createReadStream(path_to_file);
-
-		if(type) {
-			res.writeHead(200, {'Content-type': type});
-		} else {
-			res.writeHead(200, {'Content-type': 'text/html'});
-		}
-		file.pipe(res);
-	}
-};
+module.exports = function(file, type) {
+	return http.createServer(handler(file, type));
+}

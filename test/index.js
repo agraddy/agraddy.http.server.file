@@ -1,30 +1,33 @@
 var mod = require('../');
+var http = require('http');
 var test = require('tape');
 var stream = require('stream');
 
-test('Serve file', function(t) {
-	var data;
-	var req;
-	// Create a write stream
-	// From: http://stackoverflow.com/a/21583831
-	var res = new stream.Writable();
-	res._write = function(chunk, encoding, cb) {
-		data = chunk.toString();
-		cb();
-	};
-
-	// Setup
-	t.plan(3);
-
-	res.writeHead = function(code, headers) {
-		t.equal(code, 200);
-		t.equal(headers['Content-type'], 'text/html');
-	}
-
-	res.on('finish', function() {
-		t.equal(data, '<test></test>\n');
-	});
-
+test('Server', function(t) {
+	var port;
+	var server;
+	
 	// Run
-	mod('test.htm')(req, res);
+	server = mod('test/test.htm').listen(0, function() {
+		port = server.address().port;
+
+		http.get('http://127.0.0.1:' + port + '/', function(res) {
+			var body = '';
+
+			t.equal(res.statusCode, 200);
+			t.equal(res.headers['content-type'], 'text/html');
+
+			res.on('data', function(chunk) {
+				body += chunk;
+			});
+			res.on('end', function() {
+				t.equal(body, '<test></test>\n');
+				t.end();
+				server.close();
+			});
+		});
+
+
+
+	});
 });

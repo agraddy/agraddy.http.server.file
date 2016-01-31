@@ -1,6 +1,6 @@
 {
   "name": "agraddy.http.server.file",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A very simple file server.",
   "main": "index.js",
   "scripts": {
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/agraddy/agraddy.http.server.file#readme",
   "devDependencies": {
     "tape": "^4.4.0"
+  },
+  "dependencies": {
+    "agraddy.http.server.file.handler": "^1.0.1"
   }
 }
