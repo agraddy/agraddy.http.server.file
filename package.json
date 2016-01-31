@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/agraddy/agraddy.http.server.file.git"
   },
-  "author": "",
+  "author": "Anthony Graddy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/agraddy/agraddy.http.server.file/issues"
